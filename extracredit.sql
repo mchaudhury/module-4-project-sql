@@ -43,7 +43,7 @@ JOIN playlist_track pl
 ON t.track_id = pl.track_id
 JOIN playlist p
 ON p.playlist_id = pl.playlist_id
-WHERE p.playlist_id = '5'
+WHERE p.playlist_id = '5';
 
 SELECT t.name "tracks name", p.name "Playlist name"
 FROM track t
@@ -51,17 +51,12 @@ JOIN playlist_track pl
 ON t.track_id = pl.track_id
 JOIN playlist p
 ON p.playlist_id = pl.playlist_id
-WHERE p.playlist_id = '5'
+WHERE p.playlist_id = '5';
 
-SELECT t.name "Track", al.title "Album Title" FROM track t
-JOIN album al
-ON t.album_id = al.album_id;
-
-
-SELECT t.name "Track", al.title "Album Title", g.name "Genre"
+SELECT t.name "Track Name", a.title "Album", g.name "Genre"
 FROM track t
-JOIN album al
-ON t.album_id = al.album_id
 JOIN genre g
-ON g.genre_id = t.genre_id
-WHERE g.name = "Alternative & Punk"
+ON t.genre_id = g.genre_id
+JOIN album a
+ON t.album_id = a.album_id
+WHERE g.name = 'Alternative & Punk';
